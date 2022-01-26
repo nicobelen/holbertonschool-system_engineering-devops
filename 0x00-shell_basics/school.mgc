@@ -1,2 +1,2 @@
 #!/bin/bash
-0 string /x82/x67/x72/x79/x79/x76 school
+0 string SCHOOL file --mime-type -m school.mgc
