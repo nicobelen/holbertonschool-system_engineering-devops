@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lah hello
+ls 753 hello
