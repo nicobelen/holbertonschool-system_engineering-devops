@@ -1,2 +1,2 @@
 #!/bin/bash
-chown vincent hello if o=guillaume
+if o=guillaume then chown vincent hello
