@@ -1,0 +1,2 @@
+#!/bin/bash
+while IFS=: read user shadow uid guid geco home sh; do if [[ $uid -le 100 ]]; then echo $user $home; fi; done < /etc/passwd
