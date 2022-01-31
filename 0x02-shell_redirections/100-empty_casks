@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -empty -mindepth 9 -printf %y
+find . -empty -name -printf %y
