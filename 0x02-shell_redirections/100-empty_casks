@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f,d -empty -printf -p
+find . -type f,d -empty | cut -f 6
