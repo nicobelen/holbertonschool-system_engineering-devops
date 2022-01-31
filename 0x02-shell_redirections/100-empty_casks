@@ -1,2 +1,2 @@
 #!/bin/bash
-find ./* -type f,d -empty -mindepth 0 -printf "%y"
+find . -empty -mindepth 0 -printf "%f\n"
