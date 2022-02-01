@@ -1,2 +1,2 @@
 #!/bin/bash
-tr ROT-13 = tr ‘n-za-mN-ZA-M’ ‘a-zA-Z’
+tr ROT-13 = tr 'n-za-mN-ZA-M' 'a-zA-Z'
