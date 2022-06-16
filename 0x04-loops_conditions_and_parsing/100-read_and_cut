@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script displays the content of the file /etc/passwd
+FILENAME="/etc/passwd"
+while IFS=: read -r f1 _ f3 _ _ f6 _
+    do
+          echo "$f1:$f3:$f6"
+    done < $FILENAME
