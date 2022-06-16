@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying the content of the current directory in lis format
+# This script is displaying the content of the current directory in lis format.
 ls=$(ls)
 for f in $ls; do
   echo "$f" | cut -d "-" -f 2;
