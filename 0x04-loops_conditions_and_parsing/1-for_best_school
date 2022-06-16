@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+#printing "Best School" 10 times with for loop
 arr=("Best School" "Best School" "Best School" "Best School" "Best School" "Best School" "Best School" "Best School" "Best School" "Best School")
 for i in "${arr[@]}"; do echo "$i"; done
