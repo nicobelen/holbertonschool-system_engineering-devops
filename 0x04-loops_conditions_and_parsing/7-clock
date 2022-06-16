@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+x=0
+j=1
+while [ $x -le 12 ]
+do
+    echo "Hour: "$x
+    j=1
+    while [ $j -le 59 ]
+    do
+        echo $j
+        j=$(( $j + 1 ))
+    done
+x=$(( $x + 1 ))
+done
