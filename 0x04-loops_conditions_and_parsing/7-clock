@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script prints 12 hours with min
 x=0
 j=1
 while [ $x -le 12 ]
@@ -8,7 +9,7 @@ do
     while [ $j -le 59 ]
     do
         echo $j
-        j=$(( $j + 1 ))
+        j=$(( j + 1 ))
     done
-x=$(( $x + 1 ))
+x=$(( x + 1 ))
 done
