@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script stops process of exercise 4 without using kill or killall
+pkill -f infinity
