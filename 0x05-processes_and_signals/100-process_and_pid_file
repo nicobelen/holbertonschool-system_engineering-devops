@@ -8,4 +8,4 @@ while :
       echo "To infinity and beyond"
       sleep 2
     done
-rm /var/run/myscript.pid
+rm -r /var/run/myscript.pid
