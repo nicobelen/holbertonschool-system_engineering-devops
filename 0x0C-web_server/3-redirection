@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Configure your Nginx server so that /redirect_me is redirecting to another page.
-apt-get -y update
-apt-get -y install nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo chmod 777 /etc/nginx/sites-enabled/default
 new_strings="listen 80 default_server;/nlisten [::]:80 default_server;/nserver_name nicobelen.tech www.nicobelen.tech;/nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;"
 sed -i "s/listen 80 default_server;/nlisten [::]:80 default_server;/$new_strings/" /etc/nginx/sites-enabled/default
-service nginx restart
+sudo service nginx restart
