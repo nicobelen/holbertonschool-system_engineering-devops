@@ -2,7 +2,7 @@
 # script that configures a new Ubuntu machine to respect above
 # requirements (this script will be run on the server itself)
 chmod 777 nginx
-sudo apt update
-sudo apt install nginx
+sudo apt -y update
+sudo apt -y install nginx
 echo "Hello World"
 sudo service nginx restart
