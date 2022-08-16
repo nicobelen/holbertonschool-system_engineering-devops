@@ -3,5 +3,5 @@
 # requirements (this script will be run on the server itself)
 apt-get -y update
 apt-get -y install nginx
-echo "Hello World" > /var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 service nginx restart
