@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 # Configure your Nginx server to have a custom 404 page that contains the string Ceci n'est pas une page.
-
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo chmod 777 /etc/nginx/sites-enabled/default
+sed -i "/listen 80 default_server;/a return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;" /etc/nginx/sites-enabled/default
+sudo service nginx restart
