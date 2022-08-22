@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Bash script that configures a server to the above requirements.
+sudo chmod 777 /etc/nginx/sites-enabled/default
+sudo sed -i "/listen 8080 default_server; listen [::]:8080 default_server ipv6only=on;/a listen 80 default_server; listen [::]:80 default_server ipv6only=on;" /etc/nginx/sites-enabled/default
+sudo service nginx restart

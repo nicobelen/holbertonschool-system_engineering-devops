@@ -4,7 +4,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 sudo chmod 777 /etc/nginx/sites-enabled/default
-sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-enabled/default
+sudo sed -i "/listen 80 default_server; /a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-enabled/default
 echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
 sudo chmod 777 /etc/nginx/sites-enabled/default
 sed -i "/listen 80 default_server;/a return 404 /var/www/html/404.html;" /etc/nginx/sites-enabled/default
