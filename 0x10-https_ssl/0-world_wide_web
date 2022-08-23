@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # Bash script that will display information about subdomains.
 sub_func () {
-    if [[ $2 ]]
+    if [[ ! $2 ]]
     then
-        dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v var="$2" '{split($0,list," "); printf "The subdomain %s is a %s record and points to %s\n", var, list[4], list[5]}'
-    else
         subdomains=("www" "lb-01" "web-01" "web-02")
         for sub in "${subdomains[@]}"
         do
             dig "$sub.$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v var="$sub" '{ printf "The subdomain %s is a %s record and points to %s\n", var, $(NF -1), $(NF)}'
         done
+    else
+        dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v var="$2" '{split($0,list," "); printf "The subdomain %s is a %s record and points to %s\n", var, list[4], list[5]}'
     fi
 }
 sub_func "$1" "$2"
