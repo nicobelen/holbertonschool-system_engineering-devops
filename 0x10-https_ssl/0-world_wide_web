@@ -3,13 +3,13 @@
 sub_func () {
     if [[ $2 ]]
     then
-        dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v var='$2' '{split($0,list,' '); printf 'The subdomain %s is a %s record and points to %s\n', var, list[4], list[5]}'
+        dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v var="$2" '{split($0,list," "); printf "The subdomain %s is a %s record and points to %s\n", var, list[4], list[5]}'
     else
         subdomains=("www" "lb-01" "web-01" "web-02")
-        for sub in subdomains
+        for sub in "${subdomains[@]}"
         do
-            dig sub."$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{split($0,a," "); printf "The subdomain %s is a %s record and points to %s\n", sub, a[4], a[5]}'
+            dig "$sub.$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v var="$sub" '{ printf "The subdomain %s is a %s record and points to %s\n", var, $(NF -1), $(NF)}'
         done
     fi
 }
-sub_func '$1' '$2'
+sub_func "$1" "$2"
