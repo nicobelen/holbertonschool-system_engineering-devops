@@ -12,3 +12,4 @@ sub_func () {
         done
     fi
 }
+sub_func '$1' '$2'
