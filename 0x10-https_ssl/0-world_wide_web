@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 # Bash script that will display information about subdomains.
-sub_func () {
-    if [[ ! $2 ]]
-    then
-        subdomains=("www" "lb-01" "web-01" "web-02")
-        for sub in "${subdomains[@]}"
-        do
-            dig "$sub.$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v var="$sub" '{ printf "The subdomain %s is a %s record and points to %s\n", var, $(NF -1), $(NF)}'
-        done
-    else
-        dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v var="$2" '{split($0,list," "); printf "The subdomain %s is a %s record and points to %s\n", var, list[4], list[5]}'
-    fi
-}
-sub_func "$1" "$2"
+arg1="$1"
+arg2="$2"
+if [ "$#" != "2" ]; then
+for sub in "www" "lb-01" "web-01" "web-02"
+do
+  arg3=$sub
+  sub_dom="$arg3.$arg1"
+  dig "$sub_dom" | grep -A1 'ANSWER SECTION:' > text.txt
+  ip=$(awk '{print $5}' text.txt)
+  record=$(awk '{print $4}' text.txt)
+  echo The subdomain $arg3 is a $record record and points to $ip
+done
+else
+sub_dom="$arg2.$arg1"
+dig "$sub_dom" | grep -A1 'ANSWER SECTION:' > text.txt
+ip=$(awk '{print $5}' text.txt)
+record=$(awk '{print $4}' text.txt)
+echo The subdomain $arg2 is a $record record and points to $ip
+fi
