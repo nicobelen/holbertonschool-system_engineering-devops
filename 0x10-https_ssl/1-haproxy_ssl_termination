@@ -1,4 +1,4 @@
-# The file 100-redirect_http_to_https must be your HAproxy configuration file
+# The file 1-haproxy_ssl_termination must be your HAproxy configuration file
 global
         log /dev/log    local0
         log /dev/log    local1 notice
