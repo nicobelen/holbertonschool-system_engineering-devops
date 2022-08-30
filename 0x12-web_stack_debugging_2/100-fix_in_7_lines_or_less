@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Using what you did for task #1, make your fix short and sweet.
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+sed -i "s/user nginx;/" /etc/nginx/nginx.conf
+sudo service nginx restart
