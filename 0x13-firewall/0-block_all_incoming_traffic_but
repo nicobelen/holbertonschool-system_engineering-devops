@@ -1,0 +1,4 @@
+sudo ufw default deny incoming
+sudo ufw allow 22/tcp 80/tcp 443/tcp
+sudo ufw enable
+sudo systemctl restart ufw
