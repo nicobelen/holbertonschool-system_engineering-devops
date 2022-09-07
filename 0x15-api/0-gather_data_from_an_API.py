@@ -3,8 +3,8 @@
 information about his/her TODO list progress."""
 
 
-import requests
 import json
+import requests
 import sys
 
 
@@ -14,8 +14,8 @@ if __name__ == "__main__":
                             .format(sys.argv[1]))
     req_name = req_user.json().get('name')
 
-    req_todos = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
-                             .format(sys.argv[1]))
+    req_todos = requests.get('https://jsonplaceholder.typicode.com/users/{}/\
+                             todos'.format(sys.argv[1]))
     req_tasks = req_todos.json()
 
     req_len_tasks = len(req_tasks)
